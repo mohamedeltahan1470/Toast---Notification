@@ -1,15 +1,26 @@
-*{
+* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
-body{
+
+body {
     background: #f7edff;
+    font-family: Arial, sans-serif;
 }
-.buttons{
+
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 2rem;
+}
+
+.buttons {
     margin: 50px;
 }
-.buttons button{
+
+.buttons button {
     background: #333;
     color: #fff;
     border: 0;
@@ -18,9 +29,15 @@ body{
     height: 40px;
     margin: 5px;
     cursor: pointer;
+    transition: background 0.3s;
 }
-#toastBox{
-    position: absolute;
+
+.buttons button:hover {
+    background: #555;
+}
+
+#toastBox {
+    position: fixed;
     bottom: 30px;
     right: 30px;
     display: flex;
@@ -29,8 +46,10 @@ body{
     overflow: hidden;
     padding: 20px;
 }
-.toast{
-    width: 400px;
+
+.toast {
+    width: 100%;
+    max-width: 400px;
     height: 80px;
     background: #fff;
     font-weight: 500;
@@ -42,24 +61,28 @@ body{
     transform: translate(100%);
     animation: moveleft 0.5s linear forwards;
 }
-@keyframes moveleft{
-    100%{
+
+@keyframes moveleft {
+    100% {
         transform: translate(0);
     }
 }
-.toast i{
+
+.toast i {
     margin: 0 20px;
     font-size: 35px;
     color: green;
 }
-.toast.error i{
+
+.toast.error i {
     color: red;
 }
-.toast.invalid i{
+
+.toast.invalid i {
     color: orange;
 }
 
-.toast::after{
+.toast::after {
     content: '';
     position: absolute;
     left: 0;
@@ -69,14 +92,38 @@ body{
     background: green;
     animation: anim 5s linear forwards;
 }
-@keyframes anim{
-    100%{
+
+@keyframes anim {
+    100% {
         width: 0;
     }
 }
-.toast.error::after{
+
+.toast.error::after {
     background: red;
 }
-.toast.invalid::after{
+
+.toast.invalid::after {
     background: orange;
+}
+
+@media (max-width: 768px) {
+    .buttons {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .buttons button {
+        width: 100%;
+        max-width: 200px;
+    }
+
+    #toastBox {
+        bottom: 20px;
+        right: 10px;
+    }
+
+    .toast {
+        width: 90%;
+    }
 }

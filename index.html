@@ -1,3 +1,5 @@
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -8,13 +10,13 @@
     <title>Toast Notification</title>
 </head>
 <body>
-    <div class="buttons">
-        <button  onclick="showToast(successMsg)">Success</button>
-        <button  onclick="showToast(errorMsg)">Error</button>
-        <button  onclick="showToast(InvalidMsg)">Invalid</button>
-    </div>
-    <div id="toastBox">
-      
+    <div class="container">
+        <div class="buttons">
+            <button onclick="showToast(successMsg)">Success</button>
+            <button onclick="showToast(errorMsg)">Error</button>
+            <button onclick="showToast(invalidMsg)">Invalid</button>
+        </div>
+        <div id="toastBox"></div>
     </div>
 
     <script src="./script.js"></script>
